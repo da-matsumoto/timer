@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="timer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,58 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqj-IB-GqO">
+                                <rect key="frame" x="66" y="120" width="243" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhg-ag-sKY">
+                                <rect key="frame" x="147" y="171" width="94" height="30"/>
+                                <state key="normal" title="一時停止"/>
+                                <connections>
+                                    <action selector="stopTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GBr-cN-8L9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSA-oS-PBn">
+                                <rect key="frame" x="247" y="171" width="62" height="30"/>
+                                <state key="normal" title="リセット"/>
+                                <connections>
+                                    <action selector="resetTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RMK-FR-ugs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXW-j0-m3d">
+                                <rect key="frame" x="66" y="171" width="31" height="30"/>
+                                <state key="normal" title="再生"/>
+                                <connections>
+                                    <action selector="startTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="58Z-mj-gyb"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="jSA-oS-PBn" secondAttribute="trailing" constant="50" id="7dV-95-BqY"/>
+                            <constraint firstItem="xXW-j0-m3d" firstAttribute="top" secondItem="iqj-IB-GqO" secondAttribute="bottom" constant="30" id="CDE-Ik-GVH"/>
+                            <constraint firstAttribute="trailing" secondItem="zhg-ag-sKY" secondAttribute="trailing" constant="134" id="UfO-o1-ADU"/>
+                            <constraint firstItem="iqj-IB-GqO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="WGB-d4-eEq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iqj-IB-GqO" secondAttribute="trailing" constant="50" id="Y0s-QV-FFt"/>
+                            <constraint firstItem="xXW-j0-m3d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="dgj-vq-cy9"/>
+                            <constraint firstItem="iqj-IB-GqO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="h89-eh-QV4"/>
+                            <constraint firstItem="xXW-j0-m3d" firstAttribute="leading" secondItem="iqj-IB-GqO" secondAttribute="leading" id="ocX-NS-sAl"/>
+                            <constraint firstItem="zhg-ag-sKY" firstAttribute="baseline" secondItem="jSA-oS-PBn" secondAttribute="baseline" id="ofF-aM-Dvg"/>
+                            <constraint firstItem="zhg-ag-sKY" firstAttribute="leading" secondItem="xXW-j0-m3d" secondAttribute="trailing" constant="50" id="pyd-Se-0NU"/>
+                            <constraint firstItem="jSA-oS-PBn" firstAttribute="top" secondItem="iqj-IB-GqO" secondAttribute="bottom" constant="30" id="xh9-bz-i4q"/>
+                            <constraint firstItem="xXW-j0-m3d" firstAttribute="baseline" secondItem="zhg-ag-sKY" secondAttribute="baseline" id="zhU-Ey-tZM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="timerLabel" destination="iqj-IB-GqO" id="1wA-FJ-Xic"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
     </scenes>
 </document>
